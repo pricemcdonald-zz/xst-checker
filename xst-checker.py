@@ -8,8 +8,11 @@ if numarg <= 2:
     print "python xst + ip address + port"
     sys.exit(0)
 
-target = sys.argv[1] # SET TARGET
-port = sys.argv[2] # SET PORT
+# SET TARGET
+target = sys.argv[1]
+
+# SET PORT
+port = sys.argv[2] 
 
 HTTP = "TRACE / HTTP/1.1"
 STRING = "Test: <script>alert(Hello);</script>"
@@ -27,7 +30,7 @@ if result == 0:
     script = "alert"
     if script.lower() in data.lower():
         print ""
-        print "Site VULNERABLE to XST\n"
+        print "Trace Method Enabled\n"
         print "==============================="
         print "Begin Server Response"
         print "==============================="
@@ -37,7 +40,7 @@ if result == 0:
         print "==============================="
     else:
         print ""
-        print "No Dice not VULNERABLE to XST\n"
+        print "Trace Medthod not Enabled\n"
         print "============================="
         reasons=data.split('\n')
         print "REASON:"
